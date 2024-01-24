@@ -5,10 +5,11 @@ public class DiceRoller {
         greeting();
         int roll1 = rollDice();
         int roll2 = rollDice();
-        diceNumber(roll1, roll2);
+        printDice(roll1, roll2);
+        total(roll1 + roll2);
     }
     private static void greeting() {
-        System.out.print("Dice Roller");
+        System.out.println("Dice Roller");
         System.out.println();
     }
 
@@ -17,9 +18,18 @@ public class DiceRoller {
         return randomGenerator.nextInt(6)+1;
     }
 
-    private static void diceNumber(int roll1, int roll2) {
+    private static void printDice(int roll1, int roll2) {
         System.out.println("Dice 1: " + roll1);
         System.out.println("Dice 2: " + roll2);
+    }
+
+    private static void total(int total){
+        System.out.println("Total: " + total);
+        if(total == 12){
+            System.out.println("Boxcars!");
+        } else if(total == 2){
+            System.out.println("Snake eyes!");
+        }
     }
 
 }
