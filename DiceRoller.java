@@ -1,12 +1,19 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class DiceRoller {
     public static void main(String[] args) {
         greeting();
-        int roll1 = rollDice();
-        int roll2 = rollDice();
-        printDice(roll1, roll2);
-        total(roll1 + roll2);
+
+        while(true) {
+            int roll1 = rollDice();
+            int roll2 = rollDice();
+            printDice(roll1, roll2);
+            total(roll1 + roll2);
+            if(!goAgain()) {
+                break;
+            }
+        }
     }
     private static void greeting() {
         System.out.println("Dice Roller");
@@ -31,5 +38,13 @@ public class DiceRoller {
             System.out.println("Snake eyes!");
         }
     }
+
+    private static boolean goAgain() {
+        System.out.print("Continue? (y/n): ");
+        Scanner response = new Scanner(System.in);
+         String result = response.nextLine();
+        return result.equalsIgnoreCase("y");
+    }
+
 
 }
